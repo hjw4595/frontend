@@ -1,5 +1,6 @@
+//오프라인상태일떄 
 export const defaults = {
-    isLoggenIn: localStorage.getItem("token") !== null ? true : false
+    isLoggedIn: Boolean(localStorage.getItem("token")) || false
 }
 
 export const resolvers ={
@@ -8,7 +9,7 @@ export const resolvers ={
             localStorage.setItem("token", token);
             cache.writeDate({
                 data:{
-                    isLoggenIn:true
+                    isLoggedIn:true
                 }
             });
             return null;
