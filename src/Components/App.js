@@ -19,17 +19,17 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
+  const {
+    data: { isLoggedIn }
+  } = useQuery(QUERY);
 
-  const {data} = useQuery(QUERY);
-  console.log(data);
-
-    return (
+  return (
     <ThemeProvider theme={Theme}>
       <Wrapper>
-      <GlobalStyles />
-      <Router isLoggedIn= {false}></Router>
+        <GlobalStyles />
+        <Router isLoggedIn={isLoggedIn} />
         <Footer />
       </Wrapper>
     </ThemeProvider>
-    );
-  };
+  );
+};
